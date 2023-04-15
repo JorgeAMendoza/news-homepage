@@ -1,4 +1,5 @@
 export interface ArticleSnippet {
+  id: string
   title: string;
   description: string;
   link: string;
@@ -13,7 +14,7 @@ export type NewArticleSnippet = Omit<
   'smallImage' | 'largeImage'
 >;
 
-export interface HomeResponse {
+export interface HomeProps {
   mainArticle: ArticleSnippet;
   newArticles: NewArticleSnippet[];
   otherArticles: OtherArticleSnippet[];

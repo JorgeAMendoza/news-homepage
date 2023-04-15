@@ -1,7 +1,15 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { HomeProps } from '../../types/api';
+import NewArticle from '@/components/NewArticle/NewArticle';
+import SideArticle from '@/components/SideArticle/SideArticle';
+import { getHomeArticles } from '../../lib/articles';
 
-export default function Home() {
+export default function Home({
+  mainArticle,
+  newArticles,
+  otherArticles,
+}: HomeProps) {
   return (
     <>
       <Head>
@@ -18,19 +26,55 @@ export default function Home() {
 
         <section>
           <Image
-            src="/some-image"
+            src={mainArticle.largeImage}
             width={343}
             height={300}
             alt="image description"
           />
-          <h2>main article title</h2>
-          <p>main article text</p>
-          <a href="article">read more</a>
+          <h2>{mainArticle.title}</h2>
+          <p>{mainArticle.description}</p>
+          <a href={mainArticle.link}>read more</a>
         </section>
 
-        <section>{/* render various new articles here */}</section>
-        <section>{/* render other news articles here */}</section>
+        <section>
+          <h2>New</h2>
+          <ul>
+            {newArticles.map((article) => (
+              <li key={article.id}>
+                <NewArticle
+                  title={article.title}
+                  description={article.description}
+                  link={article.link}
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section>
+          <h2>Other articles</h2>
+          {otherArticles.map((article) => (
+            <li key={article.id}>
+              <SideArticle
+                title={article.title}
+                description={article.description}
+                link={article.link}
+                smallImage={article.smallImage}
+              />
+            </li>
+          ))}
+        </section>
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const articles = await getHomeArticles();
+  return {
+    props: {
+      mainArticle: articles.mainArticle,
+      newArticles: articles.newArticles,
+      otherArticles: articles.otherArticles,
+    },
+  };
 }
