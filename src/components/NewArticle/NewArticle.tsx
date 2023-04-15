@@ -1,14 +1,15 @@
-interface NewArticleProps {
-  title: string;
-  subtitle: string;
-}
+import { NewArticleSnippet } from '../../../types/api';
 
-const NewArticle = ({ title, subtitle }: NewArticleProps) => {
+type NewArticleProps = Omit<NewArticleSnippet, 'id'>;
+
+const NewArticle = ({ title, description, link }: NewArticleProps) => {
   return (
-    <figure>
-      <h3>{title}</h3>
-      <p>{subtitle}</p>
-    </figure>
+    <a href={link}>
+      <figure>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </figure>
+    </a>
   );
 };
 

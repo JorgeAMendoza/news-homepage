@@ -1,27 +1,29 @@
 import Image from 'next/image';
+import { OtherArticleSnippet } from '../../../types/api';
 
-interface SideArticleProps {
-  title: string;
-  subtitle: string;
-  order: number;
-  image: string;
-}
+type SideArticleProps = Omit<OtherArticleSnippet, 'id'>;
 
-const SideArticle = ({ title, subtitle, order, image }: SideArticleProps) => {
+const SideArticle = ({
+  title,
+  description,
+  link,
+  smallImage,
+}: SideArticleProps) => {
   return (
-    <figure>
-      <Image
-        src={image}
-        width={100}
-        height={129}
-        alt={`image for article with the title of ${title}`}
-      />
-      <div>
-        <p>{order}</p>
-        <h3>{title}</h3>
-        <p>{subtitle}</p>
-      </div>
-    </figure>
+    <a href={link}>
+      <figure>
+        <Image
+          src={smallImage}
+          width={100}
+          height={129}
+          alt={`image for article with the title of ${title}`}
+        />
+        <div>
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
+      </figure>
+    </a>
   );
 };
 
