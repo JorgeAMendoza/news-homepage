@@ -1,0 +1,28 @@
+@use '../../styles/variables' as *;
+@use '../../styles/utils.module.scss' as *;
+
+.navbar {
+  position: relative;
+  padding-top: 2.6rem;
+}
+
+.navbarContainer {
+  @extend .container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navLinks {
+  display: none;
+}
+
+.openMenuButton {
+}
+
+.nav[aria-hidden='true'] {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+}
