@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Style from './navbar.module.scss';
+import { useState } from 'react';
 
 const NavBar = () => {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <div className={Style.navbar}>
       <div className={Style.navbarContainer}>
@@ -19,6 +21,7 @@ const NavBar = () => {
           aria-label="click to open navigation menu"
           aria-controls="nav-menu"
           className={Style.openMenuButton}
+          onClick={() => setShowMenu(true)}
         >
           <Image
             src="/images/icon-menu.svg"
@@ -28,10 +31,12 @@ const NavBar = () => {
           />
         </button>
 
-        <nav id="nav-menu" aria-hidden="true" className={Style.nav}>
+        <nav id="nav-menu" aria-hidden={!showMenu} className={Style.nav}>
           <button
             aria-label="click button to close the nav menu"
             aria-controls="nav-menu"
+            onClick={() => setShowMenu(false)}
+            className={Style.closeMenuButton}
           >
             <Image
               src="/images/icon-menu-close.svg"
