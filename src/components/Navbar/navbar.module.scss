@@ -3,6 +3,8 @@
 
 .navbar {
   padding-top: 2.6rem;
+  overflow: hidden;
+  position: relative;
 }
 
 .navbarContainer {
@@ -13,7 +15,7 @@
 }
 
 .nav {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   height: 100%;
@@ -23,14 +25,20 @@
   display: flex;
   flex-direction: column;
   padding: 1.6em 1.3em 0 1.4em;
+  transition: transform 0.25s linear;
+
+  &[aria-hidden='true'] {
+    animation: mobileNavSlideOut 0.25s linear forwards;
+  }
+
+  &[aria-hidden='false'] {
+    animation: mobileNavSlideIn 0.25s linear forwards;
+  }
 }
 
 .navLinks {
   justify-self: center;
   margin-top: 7.6rem;
-}
-
-.navLinks > li {
 }
 
 .navLinks > li a {
@@ -44,21 +52,33 @@
   align-self: end;
 }
 
-.nav::before {
-  content: '';
-  position: absolute;
-  width: 32vw;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  top: 0;
-  left: 0;
-  transform: translateX(-100%);
+// Keyframes
+@keyframes mobileNavSlideIn {
+  from {
+    display: block;
+    visibility: visible;
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0);
+    visibility: visible;
+  }
 }
 
-.nav[aria-hidden='true'] {
-  visibility: hidden;
-}
+@keyframes mobileNavSlideOut {
+  from {
+    display: block;
+    visibility: visible;
+    transform: translateX(0);
+  }
 
-.nav[aria-hidden='false'] {
-  visibility: visible;
+  90% {
+    transform: translateX(100vw);
+  }
+
+  to {
+    display: none;
+    visibility: hidden;
+    transform: translateX(100vw);
+  }
 }
