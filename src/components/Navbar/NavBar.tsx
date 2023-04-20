@@ -21,7 +21,14 @@ const NavBar = () => {
           aria-label="click to open navigation menu"
           aria-controls="nav-menu"
           className={Style.openMenuButton}
-          onClick={() => setShowMenu(true)}
+          onClick={() => {
+            const nextContainer = document.getElementById(
+              '__next'
+            ) as HTMLElement;
+            document.body.classList.add('mobileNavActive');
+            nextContainer.classList.add('mobileNavActive');
+            setShowMenu(true);
+          }}
         >
           <Image
             src="/images/icon-menu.svg"
@@ -35,7 +42,14 @@ const NavBar = () => {
           <button
             aria-label="click button to close the nav menu"
             aria-controls="nav-menu"
-            onClick={() => setShowMenu(false)}
+            onClick={() => {
+              const nextContainer = document.getElementById(
+                '__next'
+              ) as HTMLElement;
+              document.body.classList.add('mobileNavActive');
+              nextContainer.classList.remove('mobileNavActive');
+              setShowMenu(false);
+            }}
             className={Style.closeMenuButton}
           >
             <Image

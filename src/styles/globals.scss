@@ -29,6 +29,10 @@ body {
   min-height: 100svh;
   min-height: 100vh;
   background-color: $background-color;
+
+  &.mobileNavActive {
+    overflow: hidden;
+  }
 }
 img,
 svg {
@@ -68,4 +72,27 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+#__next {
+  &.mobileNavActive::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: mobileNavIn 0.25s linear forwards;
+    z-index: 0;
+  }
+}
+
+@keyframes mobileNavIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 }

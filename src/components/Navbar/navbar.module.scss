@@ -5,6 +5,7 @@
   padding-top: 2.6rem;
   overflow: hidden;
   position: relative;
+  isolation: isolate;
 }
 
 .navbarContainer {
@@ -21,11 +22,11 @@
   height: 100%;
   width: 68vw;
   background-color: $background-color;
-  isolation: isolate;
   display: flex;
   flex-direction: column;
   padding: 1.6em 1.3em 0 1.4em;
   transition: transform 0.25s linear;
+  z-index: 1;
 
   &[aria-hidden='true'] {
     animation: mobileNavSlideOut 0.25s linear forwards;
