@@ -46,7 +46,7 @@ const NavBar = () => {
               const nextContainer = document.getElementById(
                 '__next'
               ) as HTMLElement;
-              document.body.classList.add('mobileNavActive');
+              document.body.classList.remove('mobileNavActive');
               nextContainer.classList.remove('mobileNavActive');
               setShowMenu(false);
             }}

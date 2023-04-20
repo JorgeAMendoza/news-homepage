@@ -29,11 +29,7 @@
   z-index: 1;
 
   &[aria-hidden='true'] {
-    animation: mobileNavSlideOut 0.25s linear forwards;
-  }
-
-  &[aria-hidden='false'] {
-    animation: mobileNavSlideIn 0.25s linear forwards;
+    transform: translateX(100%);
   }
 }
 
@@ -51,35 +47,4 @@
 
 .closeMenuButton {
   align-self: end;
-}
-
-// Keyframes
-@keyframes mobileNavSlideIn {
-  from {
-    display: block;
-    visibility: visible;
-    transform: translateX(100vw);
-  }
-  to {
-    transform: translateX(0);
-    visibility: visible;
-  }
-}
-
-@keyframes mobileNavSlideOut {
-  from {
-    display: block;
-    visibility: visible;
-    transform: translateX(0);
-  }
-
-  90% {
-    transform: translateX(100vw);
-  }
-
-  to {
-    display: none;
-    visibility: hidden;
-    transform: translateX(100vw);
-  }
 }
