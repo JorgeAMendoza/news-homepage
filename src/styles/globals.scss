@@ -33,6 +33,14 @@ body {
   &.mobileNavActive {
     overflow: hidden;
   }
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 3rem;
+  }
+
+  @media screen and (min-width: $laptop) {
+    padding-top: 6rem;
+  }
 }
 img,
 svg {
