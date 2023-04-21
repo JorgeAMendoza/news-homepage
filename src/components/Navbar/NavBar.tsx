@@ -1,18 +1,46 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Style from './navbar.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import useIsMobile from '@/hooks/useIsMobile';
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (!isMobile) setShowMenu(true);
+    if (isMobile) setShowMenu(false);
+    const nextContainer = document.getElementById('__next') as HTMLElement;
+    document.body.classList.remove('mobileNavActive');
+    nextContainer.classList.remove('mobileNavActive');
+  }, [isMobile]);
+
   return (
     <div className={Style.navbar}>
       <div className={Style.navbarContainer}>
-        <Link href="/" aria-label="navigate back to homepage">
+        <Link
+          href="/"
+          aria-label="navigate back to homepage"
+          className={Style.navLogoMobile}
+        >
           <Image
             src="/images/logo.svg"
             width={45}
             height={28}
+            alt="Website logo"
+          />
+        </Link>
+
+        <Link
+          href="/"
+          aria-label="navigate back to homepage"
+          className={Style.navLogo}
+        >
+          <Image
+            src="/images/logo.svg"
+            width={64}
+            height={40}
             alt="Website logo"
           />
         </Link>
