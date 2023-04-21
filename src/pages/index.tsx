@@ -4,6 +4,7 @@ import { HomeProps } from '../../types/api';
 import NewArticle from '@/components/NewArticle/NewArticle';
 import SideArticle from '@/components/SideArticle/SideArticle';
 import { getHomeArticles } from '../../lib/articles';
+import Layout from '@/components/Layout/Layout';
 
 export default function Home({
   mainArticle,
@@ -11,15 +12,9 @@ export default function Home({
   otherArticles,
 }: HomeProps) {
   return (
-    <>
+    <Layout>
       <Head>
         <title>News Homepage</title>
-        <meta
-          name="description"
-          content="news homepage challenge provided thanks to front end mentors"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
         <h1>News homepage</h1>
@@ -64,7 +59,7 @@ export default function Home({
           ))}
         </section>
       </main>
-    </>
+    </Layout>
   );
 }
 
