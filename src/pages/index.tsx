@@ -5,6 +5,7 @@ import NewArticle from '@/components/NewArticle/NewArticle';
 import SideArticle from '@/components/SideArticle/SideArticle';
 import { getHomeArticles } from '../../lib/articles';
 import Layout from '@/components/Layout/Layout';
+import styles from '../styles/home.module.scss';
 
 export default function Home({
   mainArticle,
@@ -16,12 +17,12 @@ export default function Home({
       <Head>
         <title>News Homepage</title>
       </Head>
-      <main>
-        <h1>News homepage</h1>
+      <main className={styles.main}>
+        <h1 className={styles.pageTitle}>News homepage</h1>
 
-        <section>
+        <section className={styles.headContent}>
           <Image
-            src={mainArticle.largeImage}
+            src={mainArticle.smallImage}
             width={343}
             height={300}
             alt="image description"
