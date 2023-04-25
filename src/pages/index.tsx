@@ -32,17 +32,16 @@ export default function Home({
           <a href={mainArticle.link}>read more</a>
         </section>
 
-        <section>
+        <section className={styles.newContent}>
           <h2>New</h2>
           <ul>
             {newArticles.map((article) => (
-              <li key={article.id}>
-                <NewArticle
-                  title={article.title}
-                  description={article.description}
-                  link={article.link}
-                />
-              </li>
+              <NewArticle
+                key={article.id}
+                title={article.title}
+                description={article.description}
+                link={article.link}
+              />
             ))}
           </ul>
         </section>

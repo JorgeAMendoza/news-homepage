@@ -11,6 +11,10 @@
 
 .main {
   margin-block-start: 3.4rem;
+
+  & > *:not(h1, :last-child) {
+    margin-block-end: 6.4rem;
+  }
 }
 
 .headContent {
@@ -45,5 +49,24 @@
     justify-content: center;
     align-items: center;
     letter-spacing: 3px;
+  }
+}
+
+.newContent {
+  @extend .container;
+  color: $light-text;
+  background-color: $dark-background;
+  padding: 1.1em 1.4em;
+  padding-bottom: 0;
+
+  h2 {
+    color: $yellow-text;
+    font-size: clamp(3.2rem, 3.5vw + 1rem, 4rem);
+    margin-block-end: 2.6rem;
+  }
+
+  ul {
+    display: grid;
+    gap: 2.9rem;
   }
 }
