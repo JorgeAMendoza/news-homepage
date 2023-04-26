@@ -1,6 +1,7 @@
 @use './variables' as *;
 @use './utils/container.module.scss' as *;
 @use './utils/button.module.scss' as *;
+@use './utils/accessibility.module.scss' as *;
 
 .pageTitle {
   position: fixed;
@@ -67,6 +68,19 @@
 
   ul {
     display: grid;
-    gap: 2.9rem;
+    gap: 3.1rem;
+  }
+}
+
+.otherContent {
+  padding-bottom: 4rem;
+  @extend .container;
+  h2 {
+    @extend .hiddenTitle;
+  }
+
+  ol {
+    display: grid;
+    gap: 3.1rem;
   }
 }

@@ -45,18 +45,21 @@ export default function Home({
             ))}
           </ul>
         </section>
-        <section>
+        <section className={styles.otherContent}>
           <h2>Other articles</h2>
-          {otherArticles.map((article) => (
-            <li key={article.id}>
+
+          <ol>
+            {otherArticles.map((article, index) => (
               <SideArticle
+                key={article.id}
                 title={article.title}
                 description={article.description}
                 link={article.link}
                 smallImage={article.smallImage}
+                articleNumber={index}
               />
-            </li>
-          ))}
+            ))}
+          </ol>
         </section>
       </main>
     </Layout>
