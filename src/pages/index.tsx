@@ -20,42 +20,45 @@ export default function Home({
       <main className={styles.main}>
         <h1 className={styles.pageTitle}>News homepage</h1>
 
-        <section className={styles.headContent}>
-          <Image
-            src={mainArticle.smallImage}
-            width={343}
-            height={300}
-            alt="web 3 article picture"
-          />
+        <div className={styles.mainContent}>
+          <section className={styles.headContent}>
+            <Image
+              src={mainArticle.smallImage}
+              width={343}
+              height={300}
+              alt="web 3 article picture"
+            />
 
-          <Image
-            src={mainArticle.largeImage}
-            width={730}
-            height={300}
-            alt="web 3 article picture"
-          />
-          <div>
-            <h2>{mainArticle.title}</h2>
+            <Image
+              src={mainArticle.largeImage}
+              width={730}
+              height={300}
+              alt="web 3 article picture"
+            />
             <div>
-              <p>{mainArticle.description}</p>
-              <a href={mainArticle.link}>read more</a>
+              <h2>{mainArticle.title}</h2>
+              <div>
+                <p>{mainArticle.description}</p>
+                <a href={mainArticle.link}>read more</a>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className={styles.newContent}>
-          <h2>New</h2>
-          <ul>
-            {newArticles.map((article) => (
-              <NewArticle
-                key={article.id}
-                title={article.title}
-                description={article.description}
-                link={article.link}
-              />
-            ))}
-          </ul>
-        </section>
+          <section className={styles.newContent}>
+            <h2>New</h2>
+            <ul>
+              {newArticles.map((article) => (
+                <NewArticle
+                  key={article.id}
+                  title={article.title}
+                  description={article.description}
+                  link={article.link}
+                />
+              ))}
+            </ul>
+          </section>
+        </div>
+
         <section className={styles.otherContent}>
           <h2>Other articles</h2>
 
