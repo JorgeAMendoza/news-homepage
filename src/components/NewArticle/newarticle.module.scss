@@ -1,0 +1,27 @@
+@use '../../styles/variables' as *;
+
+.newArticleContainer {
+  display: inline-block;
+  padding-bottom: 2.4rem;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid $light-border;
+    padding-bottom: 3rem;
+  }
+}
+
+.newArticle {
+  display: grid;
+  color: $light-text;
+  gap: 0.9rem;
+}
+
+.articleTitle {
+  font-size: clamp(2rem, 2vw + 1rem, 2rem);
+}
+
+.articleDescription {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: $light-shade-text;
+}

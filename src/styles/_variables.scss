@@ -3,11 +3,17 @@ $-white: #fffdfa;
 $-dark-place-blue: #00001a;
 $-gunmetal: #5e607a;
 $-light-vermillion: #f15d51;
+$-yellow: #e9aa52;
+$-silver: #c5c6ce;
 
 $background-color: $-white;
 $light-text: $-white;
+$light-shade-text: $-silver;
 $dark-text: $-dark-place-blue;
 $button-primary: $-light-vermillion;
+$dark-background: $-dark-place-blue;
+$yellow-text: $-yellow;
+$light-border: $-gunmetal;
 
 // media queries
 $tablet: 768px;

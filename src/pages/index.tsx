@@ -5,6 +5,7 @@ import NewArticle from '@/components/NewArticle/NewArticle';
 import SideArticle from '@/components/SideArticle/SideArticle';
 import { getHomeArticles } from '../../lib/articles';
 import Layout from '@/components/Layout/Layout';
+import styles from '../styles/home.module.scss';
 
 export default function Home({
   mainArticle,
@@ -16,47 +17,60 @@ export default function Home({
       <Head>
         <title>News Homepage</title>
       </Head>
-      <main>
-        <h1>News homepage</h1>
+      <main className={styles.main}>
+        <h1 className={styles.pageTitle}>News homepage</h1>
 
-        <section>
+        <section className={styles.headContent}>
           <Image
-            src={mainArticle.largeImage}
+            src={mainArticle.smallImage}
             width={343}
             height={300}
-            alt="image description"
+            alt="web 3 article picture"
           />
-          <h2>{mainArticle.title}</h2>
-          <p>{mainArticle.description}</p>
-          <a href={mainArticle.link}>read more</a>
+
+          <Image
+            src={mainArticle.largeImage}
+            width={730}
+            height={300}
+            alt="web 3 article picture"
+          />
+          <div>
+            <h2>{mainArticle.title}</h2>
+            <div>
+              <p>{mainArticle.description}</p>
+              <a href={mainArticle.link}>read more</a>
+            </div>
+          </div>
         </section>
 
-        <section>
+        <section className={styles.newContent}>
           <h2>New</h2>
           <ul>
             {newArticles.map((article) => (
-              <li key={article.id}>
-                <NewArticle
-                  title={article.title}
-                  description={article.description}
-                  link={article.link}
-                />
-              </li>
+              <NewArticle
+                key={article.id}
+                title={article.title}
+                description={article.description}
+                link={article.link}
+              />
             ))}
           </ul>
         </section>
-        <section>
+        <section className={styles.otherContent}>
           <h2>Other articles</h2>
-          {otherArticles.map((article) => (
-            <li key={article.id}>
+
+          <ol>
+            {otherArticles.map((article, index) => (
               <SideArticle
+                key={article.id}
                 title={article.title}
                 description={article.description}
                 link={article.link}
                 smallImage={article.smallImage}
+                articleNumber={index}
               />
-            </li>
-          ))}
+            ))}
+          </ol>
         </section>
       </main>
     </Layout>
