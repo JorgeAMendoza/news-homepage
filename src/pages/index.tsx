@@ -25,11 +25,22 @@ export default function Home({
             src={mainArticle.smallImage}
             width={343}
             height={300}
-            alt="image description"
+            alt="web 3 article picture"
           />
-          <h2>{mainArticle.title}</h2>
-          <p>{mainArticle.description}</p>
-          <a href={mainArticle.link}>read more</a>
+
+          <Image
+            src={mainArticle.largeImage}
+            width={730}
+            height={300}
+            alt="web 3 article picture"
+          />
+          <div>
+            <h2>{mainArticle.title}</h2>
+            <div>
+              <p>{mainArticle.description}</p>
+              <a href={mainArticle.link}>read more</a>
+            </div>
+          </div>
         </section>
 
         <section className={styles.newContent}>
