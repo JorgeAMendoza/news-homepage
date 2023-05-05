@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Style from './navbar.module.scss';
+import styles from './navbar.module.scss';
 import { useEffect, useState } from 'react';
 import useIsMobile from '@/hooks/useIsMobile';
 
@@ -9,20 +9,19 @@ const NavBar = () => {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    if (!isMobile) setShowMenu(true);
-    if (isMobile) setShowMenu(false);
+    if (!isMobile) setShowMenu(false);
     const nextContainer = document.getElementById('__next') as HTMLElement;
     document.body.classList.remove('mobileNavActive');
     nextContainer.classList.remove('mobileNavActive');
   }, [isMobile]);
 
   return (
-    <div className={Style.navbar}>
-      <div className={Style.navbarContainer}>
+    <div className={styles.navbar}>
+      <div className={styles.navbarContainer}>
         <Link
           href="/"
           aria-label="navigate back to homepage"
-          className={Style.navLogoMobile}
+          className={styles.navLogoMobile}
         >
           <Image
             src="/images/logo.svg"
@@ -35,7 +34,7 @@ const NavBar = () => {
         <Link
           href="/"
           aria-label="navigate back to homepage"
-          className={Style.navLogo}
+          className={styles.navLogo}
         >
           <Image
             src="/images/logo.svg"
@@ -48,7 +47,7 @@ const NavBar = () => {
         <button
           aria-label="click to open navigation menu"
           aria-controls="nav-menu"
-          className={Style.openMenuButton}
+          className={styles.openMenuButton}
           onClick={() => {
             const nextContainer = document.getElementById(
               '__next'
@@ -66,7 +65,7 @@ const NavBar = () => {
           />
         </button>
 
-        <nav id="nav-menu" aria-hidden={!showMenu} className={Style.nav}>
+        <nav id="nav-menu" aria-hidden={!showMenu} className={styles.navMobile}>
           <button
             aria-label="click button to close the nav menu"
             aria-controls="nav-menu"
@@ -78,7 +77,7 @@ const NavBar = () => {
               nextContainer.classList.remove('mobileNavActive');
               setShowMenu(false);
             }}
-            className={Style.closeMenuButton}
+            className={styles.closeMenuButton}
           >
             <Image
               src="/images/icon-menu-close.svg"
@@ -88,7 +87,27 @@ const NavBar = () => {
             />
           </button>
 
-          <ul className={Style.navLinks}>
+          <ul className={styles.navLinks}>
+            <li>
+              <a href="home">Home</a>
+            </li>
+            <li>
+              <a href="new">New</a>
+            </li>
+            <li>
+              <a href="popular">Popular</a>
+            </li>
+            <li>
+              <a href="trending">Trending</a>
+            </li>
+            <li>
+              <a href="categories">Categories</a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav id="nav-desktop" className={styles.navDesktop}>
+          <ul className={styles.navLinks}>
             <li>
               <a href="home">Home</a>
             </li>
