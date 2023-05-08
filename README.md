@@ -6,7 +6,7 @@ Design, assets, and requirements provided by [FrontEndMentors](https://www.front
 
 The requirement of the project is to create a simple news homepage that is responsive and matches the design provided in the Figma file.
 
-[Live Demo]()
+[Live Demo](https://news-homepage-eheonc0yf-jorgeamendoza.vercel.app/)
 
 ## Table of Contents
 
