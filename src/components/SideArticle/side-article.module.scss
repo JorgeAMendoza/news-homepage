@@ -1,0 +1,36 @@
+@use '../../styles/variables' as *;
+
+.sideContentContainer {
+  //   line-height: 1.2;
+}
+
+.sideContent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.5rem;
+
+  div {
+    display: grid;
+    gap: 0.5rem;
+  }
+}
+
+.articleNumber {
+  color: $light-shade-text;
+  font-size: 3.2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.articleTitle {
+  color: $dark-text;
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.articleDescription {
+  font-size: 1.5rem;
+  color: $dark-text;
+  line-height: 1.7;
+}

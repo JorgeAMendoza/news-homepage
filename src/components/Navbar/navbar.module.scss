@@ -1,0 +1,98 @@
+@use '../../styles/variables' as *;
+@use '../../styles/utils/container.module.scss' as *;
+
+.navbar {
+  padding-top: 2.6rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.navbarContainer {
+  @extend .container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navMobile {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 68vw;
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6em 1.3em 0 1.4em;
+  transition: transform 0.25s linear;
+  z-index: 2;
+
+  &[aria-hidden='true'] {
+    transform: translateX(100%);
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.navDesktop {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    margin: 0;
+    display: flex;
+    gap: 4.1rem;
+  }
+}
+
+.navLogo {
+  display: none;
+}
+
+.navLinks {
+  justify-self: center;
+  margin-top: 7.6rem;
+
+  @media screen and (min-width: 768px) {
+    margin: 0;
+    display: flex;
+    gap: 4.1rem;
+  }
+}
+
+.navLinks > li a {
+  font-size: 1.8rem;
+  color: $dark-text;
+  font-weight: 400;
+  line-height: 2.9;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.closeMenuButton {
+  align-self: end;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.openMenuButton {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .navLogoMobile {
+    display: none;
+  }
+
+  .navLogo {
+    display: block;
+  }
+}

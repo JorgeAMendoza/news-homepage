@@ -18,6 +18,8 @@
 # misc
 .DS_Store
 *.pem
+pixel-perfect
+.hintrc
 
 # debug
 npm-debug.log*

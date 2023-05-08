@@ -1,0 +1,8 @@
+@use '../variables' as *;
+
+.buttonPrimary {
+  color: #fff;
+  background-color: $button-primary;
+  text-transform: uppercase;
+  font-weight: 700;
+}
